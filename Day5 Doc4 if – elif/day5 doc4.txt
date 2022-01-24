@@ -1,0 +1,139 @@
+1. Read a single digit number and write the number in word //(0-9) (%10 use -will get any radom between 0-9)  
+2. Read a Number and Display the week day (Sunday, Monday,…) 
+3. Read a Number 1, 10, 100, 1000, etc and display unit, ten, hundred,… 
+4. Enter 3 Numbers do following arithmetic operation and 
+find the one that is maximum and minimum 1.   a + b * c 3.    c + a / b 2.   a % b + c 4.    a * b + c
+
+1. Read a single digit number and write the number in word (0-9) (%10 use -will get any radom between 0-9) 
+#!/bin/bash -x
+
+digit=$(((RANDOM %10)));
+if [ $digit == 0 ]
+then
+echo "Zero";
+elif [ $digit == 1 ]
+then
+echo "one";
+elif [ $digit == 2 ]
+then
+echo "two";
+elif [ $digit == 3 ]
+then
+echo "three";
+elif [ $digit == 4 ]
+then
+echo "four";
+elif [ $digit == 5 ]
+then
+echo "five";
+elif [ $digit == 6 ]
+then
+echo "six";
+elif [ $digit == 7 ]
+then
+echo "seven";
+elif [ $digit == 8 ]
+then
+echo "eight";
+elif [ $digit == 9 ]
+then
+echo "nine";
+fi
+
+____________________________________________________________________________________
+
+2. Read a Number and Display the week day (Sunday, Monday,…) 
+
+
+#!/bin/bash -x
+
+day=$(((RANDOM %7)));
+if [ $day -eq 0 ]
+then
+ echo saturday ;
+elif [ $day -eq 1 ]
+then
+  echo sunday;
+elif [ $day -eq 2 ]
+then
+  echo monday;
+elif [ $day -eq 3 ]
+then
+  echo tuesday;
+elif [ $day -eq 4 ]
+then
+  echo wednesday;
+elif [ $day -eq 5 ]
+then
+  echo thursday;
+elif [ $day -eq 6 ]
+then
+ echo friday
+
+fi
+___________________________________________________________________________________
+4. Enter 3 Numbers do following arithmetic operation and 
+find the one that is maximum and minimum 1.   a + b * c 3.    c + a / b 2.   a % b + c 4.    a * b + c
+
+#!/bin/bash -x
+a=$(((RANDOM%90)+1))
+b=$(((RANDOM%90)+1))
+c=$(((RANDOM%90)+1))
+
+op1=$((a+b*c))
+op2=$((c+a/b))
+op3=$((a%b+c))
+op4=$((X*Y+Z))
+
+min=$op1$;
+max=$op1;
+
+if (($op2<$op1))
+then
+ min=$op2;
+fi
+if (($op3<$min))
+then
+ min=$op3;
+fi
+if (($op4<$min))
+then
+ min=$op4;
+fi
+if (($op2>$op1))
+then
+ max=$op2;
+fi
+if (($op3>$max))
+then
+ max=$op3;
+fi
+if (($op4>$op3))
+then
+ max=$op4;
+fi
+echo =$min
+echo =$max
+_________________________________________________________________________________
+3. Read a Number 1, 10, 100, 1000, etc and display unit, ten, hundred,… 
+#!/bin/bash -x
+
+read -p "enter a number in unit to 10000" num
+if [ $num -eq 1 ]
+then
+echo unit
+elif [ $num -eq 10 ]
+then
+echo Ten
+elif [ $num -eq 100 ]
+then
+echo Hundred
+elif [ $num -eq 1000 ]
+then
+echo Thousand
+elif [ $num  -eq 10000 ]
+then
+echo Tenthousand
+else
+echo enter any number
+fi
